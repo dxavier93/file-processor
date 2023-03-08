@@ -1,6 +1,7 @@
 # Technical-test
 This code consists in a file processor for phone numbers.
-The input file is inside the project package together with the countyCodes.
+The input file is inside the project package together with the countyCodes, 
+so you just need to chance the file values.
 
 ### Software Engineer
 - Deorgenes Xavier Junior
