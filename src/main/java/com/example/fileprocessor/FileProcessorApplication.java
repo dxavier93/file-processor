@@ -17,7 +17,7 @@ public class FileProcessorApplication {
 	private FileProcessorService service;
 
 	public static void main(String[] args) {
-		SpringApplication.run(FileProcessorApplication.class, args);
+		SpringApplication.run(FileProcessorApplication.class, args).close();
 	}
 
 	@Bean

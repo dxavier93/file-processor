@@ -9,18 +9,29 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
 
-import static com.example.fileprocessor.util.Utils.FILE_PATH;
+import static com.example.fileprocessor.util.Utils.COUNTRY_FILE;
+import static com.example.fileprocessor.util.Utils.INPUT_FILE;
 
 @Repository
 @Slf4j
 public class FileRepository {
-  private final Path path;
+  private final Path pathCountry;
+  private final Path pathInput;
 
-  public FileRepository(Optional<Path> path) {
-    this.path = path.orElse(Path.of(FILE_PATH));
+  public FileRepository(Optional<Path> pathCountry, Optional<Path> pathInput) {
+    this.pathCountry = pathCountry.orElse(Path.of(COUNTRY_FILE));
+    this.pathInput = pathInput.orElse(Path.of(INPUT_FILE));
   }
 
-  public List<String> findAll() {
+  public List<String> findAllCountries() {
+    return findAll(pathCountry);
+  }
+
+  public List<String> findAllInputs() {
+    return findAll(pathInput);
+  }
+
+  private List<String>  findAll(Path path){
     try {
       return Files.lines(path).toList();
     } catch (IOException ex) {
